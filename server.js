@@ -14,6 +14,7 @@ connectDB();
 app.use(cors());
 app.use("/user", User);
 app.use('/doctors', Doctor)
+app.use(".files", express.static("uploads"))
 
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
