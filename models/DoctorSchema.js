@@ -8,3 +8,4 @@ const DoctorSchema = new mongoose.Schema({
   experienceYears: Number,
 });
 const Doctor = mongoose.model("Doctor", DoctorSchema);
+export default Doctor;
