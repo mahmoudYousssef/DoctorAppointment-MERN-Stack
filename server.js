@@ -4,6 +4,10 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import User from "./routes/user.js";
 import Doctor from './routes/doctor.js'
+import Appointment from './routes/appointment.js'
+
+
+
 const app = express();
 app.use(express.json());
 
@@ -14,6 +18,7 @@ connectDB();
 app.use(cors());
 app.use("/user", User);
 app.use('/doctors', Doctor)
+app.use('/appointment', Appointment)
 app.use(".files", express.static("uploads"))
 
 app.listen(PORT, () => {
