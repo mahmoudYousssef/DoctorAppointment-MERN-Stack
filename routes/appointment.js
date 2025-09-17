@@ -1,8 +1,11 @@
 import express from "express";
 import Appointment from "../models/AppointmentSchema.js";
+import auth from "../auth/Middleware.js";
+
+
 const router = express.Router();
 
-router.post("/createAppointment", async (req, res) => {
+router.post("/createAppointment",auth , async (req, res) => {
   const { doctor, date, reason } = req.body;
   if (!doctor || !date || !reason)
     return res.status(400).json({ message: "Missing fields" });
@@ -16,10 +19,9 @@ router.post("/createAppointment", async (req, res) => {
   res.status(201).json(appointment);
 });
 
-router.get("/myAppointments", async (req, res) => {
+router.get("/myAppointments", auth ,async (req, res) => {
   const appointment = await Appointment.find({
-    user: req.user.id,
-  });
+    user: req.user.id}).populate('doctor')
   res.json(appointment);
 });
 router.post("/deleteAppointment/:id", async (req, res) => {

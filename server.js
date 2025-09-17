@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import User from "./routes/user.js";
 import Doctor from './routes/doctor.js'
 import Appointment from './routes/appointment.js'
+import Departments from "./routes/Department.js";
 
 
 
@@ -18,6 +19,7 @@ connectDB();
 app.use(cors());
 app.use("/user", User);
 app.use('/doctors', Doctor)
+app.use('/departments',Departments)
 app.use('/appointment', Appointment)
 app.use(".files", express.static("uploads"))
 
