@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+/* Custom styles for the HeroSlider component */
+
+button{
+  background: #46daea !important;
+  color: black !important;
+  font-weight: bold !important;
+  padding: 10px 20px !important;
+  transition: ease-in-out 0.3s !important;
+
+
+}
+button:hover{
+  background: #00c1c4 !important;
+  color: white !important;
+}
